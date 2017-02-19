@@ -1,0 +1,32 @@
+<br><br><br><br>
+<div class="container" data-ng-init="init()">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Hello {{firstname}}, {{lastname}}</h2>
+            <table class="table table-hover">
+                <tr>
+                    <th>#</th>
+                    <th>Transaction ID</th>
+                    <th>Number of Days</th>
+                    <th>Amount Paid</th>
+                    <th>Actions</th>
+                </tr>
+                <tr data-ng-repeat="transactions in history">
+                    <td>{{$index + 1}}</td>
+                    <td><a href="#/details/{{transactions._id}}">{{transactions._id}}</a></td>
+                    <td>{{transactions.numberOfDays}}</td>
+                    <td>${{transactions.amount_paid}}</td>
+                    <td><i class="fa fa-close" ng-click="cancelReservation(transactions._id)"></i></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <table class="table">
+                <tr>
+                    <td><a href="#/reserve" class="btn btn-warning">New Reservation</a></td>
+                    <td><a href="#/logout" class="btn btn-success">Logout</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

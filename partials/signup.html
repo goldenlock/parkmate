@@ -1,0 +1,68 @@
+<br><br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table">
+                <tr>
+                    <td colspan="2"><h2>New User Registration</h2></td>
+                </tr>
+                <tr>
+                    <td>First Name:</td>
+                    <td><input type="text" data-ng-model="user.firstname" placeholder="John" class="form-control" required></td>
+                </tr>
+
+                <tr>
+                    <td>Last Name:</td>
+                    <td><input type="text" data-ng-model="user.lastname" placeholder="Doe" class="form-control" required></td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" data-ng-model="user.username" placeholder="Desired Username" class="form-control" required>
+                    <p style="font-size:10px; font-weight:bold" data-ng-click="checkUsername(user.username)">Check availability</p>
+                    </td>
+                </tr>
+                <tr ng-show="username_status">
+                    <td colspan="2"><p class="alert alert-danger"><b>Username: {{user.username}} already exists!</b></p></td>
+                </tr>
+                <tr ng-show="!username_status">
+                    <td colspan="2"><p class="alert alert-danger"><b>Username: {{user.username}} is available!</b></p></td>
+                </tr>
+
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" data-ng-model="user.password" placeholder="Password" class="form-control" required></td>
+                </tr>
+
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" data-ng-model="user.email" placeholder="Email" class="form-control" required></td>
+                </tr>
+
+                <tr>
+                    <td>Phone:</td>
+                    <td><input type="text" data-ng-model="user.phone" placeholder="+1 (xxx) xxx - xxxx" class="form-control" required></td>
+                </tr>
+
+                <tr>
+                    <td>Vehicle Model & Make:</td>
+                    <td><input type="text" data-ng-model="user.color" placeholder="BMW 328i" class="form-control" required></td>
+                </tr>
+
+                <tr>
+                    <td>Vehicle License#:</td>
+                    <td><input type="text" data-ng-model="user.vehicle" placeholder="License Number" class="form-control" required></td>
+                </tr>
+
+                <tr>
+                    <td>Vehicle Year:</td>
+                    <td><input type="text" data-ng-model="user.year" placeholder="2016" class="form-control" maxlength="4" required></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><button type="submit" class="btn btn-success" data-ng-click="register(user)">Sign up</button></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>

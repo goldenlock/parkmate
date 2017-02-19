@@ -1,0 +1,85 @@
+<br><br><br><br>
+<div class="container" data-ng-init="init()">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Hello {{firstname}}, {{lastname}}</h2>
+            <h3>Parking Lots</h3>
+            <table class="table">
+                <tr data-ng-repeat="garage in lots">
+                    <td>
+                        <div class="alert alert-success" style="display:block" data-ng-click="showMap(garage.lot_name, garage._id, garage.price)">
+                            <p><i class="fa fa-car"></i> <strong>{{garage.lot_name}}</strong></p>
+                            <p><i class="fa fa-bell"></i> Available: {{garage.lot_available}} / {{garage.lot_capacity}}</p>
+                            <p><i class="fa fa-map-marker"></i> {{garage.lot_address}}</p>
+                            <p><i class="fa fa-usd"></i> {{garage.price}} / day</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+        <form ng-sumbit="reserve(form)">
+
+            <table class="table">
+                <h3>Reservation Form</h3>
+                <tr>
+                    <td>First Name:</td>
+                    <td><input type="text" class="form-control" value="{{firstname}}" required></td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td><input type="texet" class="form-control" value="{{lastname}}" required></td>
+                </tr>
+                <tr>
+                    <td>Parking Lot</td>
+                    <td>{{sel_parking}}</td>
+                </tr>
+                <tr>
+                    <td>From</td>
+                    <td><datepicker date-format="yyyy-MM-dd" selector="form-control">
+                        <div class="input-group">
+                            <input class="form-control" data-ng-model="form.start_date"  placeholder="Choose a date"/>
+                            <span class="input-group-addon" style="cursor: pointer">
+                            <i class="fa fa-lg fa-calendar"></i>
+                            </span>
+                        </div>
+                    </datepicker></td>
+                </tr>
+                <tr>
+                    <td>To</td>
+                    <td><datepicker date-format="yyyy-MM-dd" selector="form-control">
+                        <div class="input-group">
+                            <input class="form-control" data-ng-model="form.end_date" placeholder="Choose a date"/ required>
+                            <span class="input-group-addon" style="cursor: pointer">
+                            <i class="fa fa-lg fa-calendar"></i>
+                            </span>
+                        </div>
+                    </datepicker></td>
+                </tr>
+                <tr>
+                    <td>Number of Days:</td>
+                    <td><input type="text" maxlength="2" ng-model="form.numberOfDays" class="form-control" required></td>
+                </tr>
+
+                <tr>
+                    <td>Credit Card Number:</td>
+                    <td><input type="number" ng-model="cc" placeholder="Enter your Credit Card Number" class="form-control" required>
+                        <i id="creditcard_icon" class="fa fa-credit-card fa-2x"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Month / Year</td>
+                    <td><input type="text" class="form-control" placeholder="MM / YY" required></td>
+                </tr>
+                <tr>
+                    <td>CVV</td>
+                    <td><input type="text" class="form-control" placeholder="CVV" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" ng-click="reserve(form)" class="btn btn-primary" value="Reserve"></td>
+                </tr>
+            </table>
+        </form>
+        </div>
+    </div>
+</div>
